@@ -1,0 +1,7 @@
+
+
+
+
+* feature selection - selection of which features co-releate the most to the response variable
+ ** SelectKBest 
+ **
