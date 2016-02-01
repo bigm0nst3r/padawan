@@ -6,6 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 import re
 import pandas
 
+from sklearn.feature_selection import SelectKBest,f_classif
 
 
 # test comment
@@ -53,3 +54,7 @@ titles = titanic["Name"].apply(getTitle)
 
 
     
+selector = SelectKBest(f_classif, k=5)
+selector.fit(titanic["predictors"],titanic["survived"])
+
+alg.predict
