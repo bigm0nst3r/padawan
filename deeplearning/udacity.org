@@ -1,0 +1,39 @@
+
+
+* Concepts
+
+  ** softmax function - platt scaling - conversion of scores to probabilities
+  ** one hot encoding - 1 for predicted class, 0 for the rest
+  ** cross entropy - distance between probablities and scores
+
+representation - y is the score vector
+
+s(y) - score vector of y
+
+D(S, L) = -∑(Lᵢlog(Sᵢ))
+
+
+* Process of multinomial classification
+
+  score vector (linear model) ⇒ₗ Logit s(y) ⇒ softmax(D(S,L)) ⇒ 1-Hot labels
+
+* Loss - minimizing the loss or the distance between the hypothesis and the actual data
+  ** ∑ Dᵢ
+     ᵢ
+* Helping out SGD
+  ** keep it with zero mean 
+  ** equal variance
+  ** lowering the learning rate α over time
+  
+* ADAGRAD
+  ** techinique to reduce the dependency on hyperparameters
+
+
+
+  
+
+
+
+           ᵢ
+
+
