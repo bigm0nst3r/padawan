@@ -1,0 +1,39 @@
+
+
+* Non-Linear Decision Boundaries
+
+* Model Representation
+
+
+   | Input | Hidden Layer | Output |
+
+   | 1 (bias) | 1 (bias) |
+   
+   | x₁ |  ->  | a₁² |
+
+   | x₂ |  ->  | a₂² |  ->  |  hθ(x)  |
+
+   | x₃ |  ->  | a₃² |
+
+
+* a₁² = g(θ₁₀² X₀ + θ₁₁²X₁ + θ₁₂²X₂ + θ₁₃²X₃) = g(z₁²)
+
+* a₂² = g(θ₂₀² X₀ + θ₂₁²X₁ + θ₂₂²X₂ + θ₂₃²X₃) = g(z₂²)
+
+* a₃² = g(θ₃₀² X₀ + θ₃₁²X₁ + θ₃₂²X₂ + θ₃₃²X₃) = g(z₃²)
+
+* conventions
+  ** superscript indicates current layer
+  ** first subscript  - to which layer
+  ** second subscript - from which layer
+
+* activation on iᵗʰ layer from jᵗʰ  layer
+* x₀ = 1
+* sigmoid function element-wise to each z²s
+
+
+
+  
+
+
+
