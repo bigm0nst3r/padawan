@@ -17,6 +17,11 @@ pixel_depth = 255
 
 train_folders = [ '/home/sree/code/train/notMNIST_large/A', '/home/sree/code/train/notMNIST_large/B', '/home/sree/code/train/notMNIST_large/C', '/home/sree/code/train/notMNIST_large/D']
 
+test_folders = ['/home/sree/code/train/notMNIST_small/A', '/home/sree/code/train/notMNIST_small/B', '/home/sree/code/train/notMNIST_small/C', '/home/sree/code/train/notMNIST_small/D']
+
+
+
+
 def load_letter(folder, min_num_images):
   """
   Arguments:
@@ -27,16 +32,19 @@ def load_letter(folder, min_num_images):
   dataset = np.ndarray(shape=(len(image_files), image_size, image_size), dtype=np.float32)
   image_index = 0
   print(folder)
+  print(len(image_files))
   for image in image_files:
     image_file = os.path.join(folder, image)
+#    pdb.set_trace()
     try :
-      print("Traning Image file", image_file)
+#      print("Processing Image file", image_file)
       image_data = (ndimage.imread(image_file).astype(float) - pixel_depth/2) / pixel_depth
       if image_data.shape != (image_size, image_size):
         raise Exception('Unexpected image shape: %s' % str(image_data.shape))
         dataset[image_index, :, :] = image_data
         image_index += 1
     except IOError as e:
+        print(e)
         print("I/o error")
 
   num_images = image_index
@@ -72,8 +80,7 @@ def maybe_pickle(data_folders, min_num_images_per_class, force=False):
 
 
 #train_datasets = maybe_pickle(train_folders, 45000)
-          #test_datasets = maybe_pickle(test_folders, 1800)
-
+#test_datasets = maybe_pickle(test_folders, 1800)
 
 
 
@@ -108,18 +115,24 @@ def merge_datasets(pickle_files, train_size, valid_size = 0):
           valid_labels[start_v:end_v] = label
           start_v += vsize_per_class
           end_v += vsize_per_class
-          pdb.set_trace()
-
-          
-        
+        train_letter = letter_set[vsize_per_class:end_l, :, :]
+        train_dataset[start_t:end_t, :, :] = train_letter
+        train_labels[start_t:end_t] = label
+        start_t += tsize_per_class
+        end_t += tsize_per_class
     except Exception , e:
       print("Failed to process file", pickle_file, e)
-
-  
   return valid_dataset, valid_labels, train_dataset, train_labels
   
 
-  
+
+# randomize the dataset
+def randomize(dataset, labels):
+  permutation = np.random.permutation(labels.shape[0])
+  shuffled_dataset = dataset[permutation,:,:]
+  shuffled_labels = labels[permutation]
+  return shuffled_dataset, shuffled_labels
+
 
 
 train_size = 200000
@@ -127,9 +140,18 @@ valid_size = 10000
 test_size = 10000
 
 train_datasets = ['/home/sree/code/train/notMNIST_large/A.pickle', '/home/sree/code/train/notMNIST_large/B.pickle', '/home/sree/code/train/notMNIST_large/C.pickle', '/home/sree/code/train/notMNIST_large/D.pickle']
+
+test_datasets = ['/home/sree/code/train/notMNIST_small/A.pickle', '/home/sree/code/train/notMNIST_small/B.pickle', '/home/sree/code/train/notMNIST_small/C.pickle', '/home/sree/code/train/notMNIST_small/D.pickle']
+
+
 valid_dataset, valid_labels, train_dataset, train_labels = merge_datasets(train_datasets, train_size, valid_size)
+_, _, test_dataset, test_labels = merge_datasets(test_datasets, test_size)
 
 
+print("datasets merged...")
+print(len(valid_dataset))
 
-
-pdb.set_trace()
+print("randomizing...")
+train_dataset, train_labels = randomize(train_dataset, train_labels)
+test_dataset, test_labels = randomize(test_dataset, test_labels)
+valid_dataset, valid_labels = randomize(valid_dataset, valid_labels)
