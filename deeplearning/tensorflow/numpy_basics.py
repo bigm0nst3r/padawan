@@ -20,4 +20,10 @@ b = np.ndarray((len(a), 3), dtype=int, buffer = a)
 print("Shuffling elements in array b")
 np.random.shuffle(b)
 print(b)
- 
+
+
+# taking a subset of the arrayp
+print("from bth 1st row to third row")
+print(b[1:4,:])
+print("from bth 1st column to third column of every row")
+print(b[:,1:3])
