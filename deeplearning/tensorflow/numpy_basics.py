@@ -1,8 +1,7 @@
 import numpy as np
 
+
 __author__ = 'Sreejith S'
-
-
 
 
 # shuffling a 2d array
@@ -27,3 +26,4 @@ print("from bth 1st row to third row")
 print(b[1:4,:])
 print("from bth 1st column to third column of every row")
 print(b[:,1:3])
+
