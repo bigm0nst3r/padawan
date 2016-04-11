@@ -1,0 +1,7 @@
+* two methods of evaluation 
+  + call by value
+  + call by name
+
+* if it terminates by call by name, it will terminate by call by value also, but not vice versa
+
+

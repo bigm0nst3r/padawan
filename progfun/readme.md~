@@ -1,0 +1,25 @@
+
+
+
+# configure ensime - sbt
+
+ 1. go to ~/.sbt/0.13/plugins
+ 
+ 2. create the file plugins.sbt   and add the following content
+
+    	       resolvers += Resolver.sonatypeRepo("snapshots")
+
+	       addSbtPlugin("org.ensime" % "ensime-sbt" % "0.1.5-SNAPSHOT")
+
+	       addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.5.0")
+
+  3. save the file
+
+  4. go to projects folder
+
+  5. create a build.properties file and add the following
+
+     	      sbt.version=0.13.6
+
+  6.
+ 
