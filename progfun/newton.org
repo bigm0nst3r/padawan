@@ -1,0 +1,28 @@
+
+
+
+* start with initial estimate y
+
+* improve the guess by taking y and the mean of x/y
+
+
+root(2)
+
+initial y (assumed square) : 1 
+
+x = 2
+y = 1
+mean of 1 and 2/1 : 1.5
+
+
+x=2
+y=1.5
+mean of 1.5 and 2/1.5=1.33 : 1.4167
+
+
+x=2
+y=1.4167
+mean of 1.4167 and 2/1.4167 : 1.414
+
+
+
