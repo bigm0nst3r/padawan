@@ -1,0 +1,11 @@
+
+
+- if-else takes expressions : not statements
+- expressions with boolean values : predicates
+- short circuit evaluation
+
+
+val and def 
+
+val - evaluated at the point of definition
+def - evaluated when it is used first
