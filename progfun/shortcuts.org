@@ -1,0 +1,19 @@
+
+
+
+- Ensime shortcuts
+  * C-c C-v   :  customization
+    + f    : reformat
+    + r    : list all references
+    
+  * C-c C-c  : compiler
+    + a : typecheck everything
+    + c : typecheck current file
+
+
+  * C-c C-r : refactoring
+    +  t   :  import the class under the curser
+    +  o   : organize imports
+    +  m   : extract into method
+    + 
+    

@@ -1,3 +1,5 @@
+package week1
+
 object Newton {
 
   def sqrt(x: Double) = {
@@ -14,6 +16,7 @@ object Newton {
       (guess + x / guess) / 2
 
     sqIter(1.0)
+
   }
 
   def main(args: Array[String]) = {

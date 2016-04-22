@@ -1,4 +1,4 @@
-
+package week1
 
 
 object  Conditionals {
@@ -21,9 +21,6 @@ object  Conditionals {
 
 
    
-
-
-
 
  }
 
