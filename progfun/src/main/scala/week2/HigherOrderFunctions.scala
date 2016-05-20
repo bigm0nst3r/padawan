@@ -39,4 +39,6 @@ object HigherOrder {
     println(sumAccumulator(cube, 1, 3))
   }
 
+
+
 }

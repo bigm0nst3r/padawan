@@ -1,5 +1,6 @@
 package week1
 
+
 object Newton {
 
   def sqrt(x: Double) = {
@@ -22,6 +23,7 @@ object Newton {
   def main(args: Array[String]) = {
     println(sqrt(20))
   }
+
 
 }
 
