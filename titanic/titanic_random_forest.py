@@ -57,4 +57,3 @@ titles = titanic["Name"].apply(getTitle)
 selector = SelectKBest(f_classif, k=5)
 selector.fit(titanic["predictors"],titanic["survived"])
 
-alg.predict
