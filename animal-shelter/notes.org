@@ -1,0 +1,47 @@
+----------------------------------------------------------------
+
+Headers :: Features
+
+In [8]: list(train_df.columns.values)
+Out[8]: 
+['AnimalID',
+ 'Name',
+ 'DateTime',
+ 'OutcomeType',
+ 'OutcomeSubtype',
+ 'AnimalType',
+ 'SexuponOutcome',
+ 'AgeuponOutcome',
+ 'Breed',
+ 'Color']
+
+----------------------------------------------------------------
+
+
+In [9]: train_df["AnimalType"].unique()
+Out[9]: array([1, 0])
+
+
+----------------------------------------------------------------
+
+array(['Neutered Male', 'Spayed Female', 'Intact Male', 'Intact Female',
+       'Unknown', nan], dtype=object)
+
+In [10]: train_df["SexuponOutcome"].unique()
+Out[10]: array([3, 4, 2, 1, 5, 0])
+
+
+----------------------------------------------------------------
+
+
+len(np.unique(train_df["Breed"].unique()))
+Out[25]: 1380
+
+train_df.sort(["Breed"], ascending=[True])
+
+
+===================================================================
+
+len(np.unique(train_df["Color"].unique()))
+
+
