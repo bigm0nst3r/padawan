@@ -26,7 +26,6 @@ with open(pickle_file, 'rb') as f:
   print('Test set', test_dataset.shape, test_labels.shape)
   print("After reading...")
 
-    
 image_size = 28
 num_labels = 10
 
@@ -42,7 +41,6 @@ def reformat(dataset, labels):
   return dataset,labels
 
 # convert 2D array into a  one dimentional space : (28 * 28) -> 784
-    
 train_dataset, train_labels = reformat(train_dataset, train_labels)
 valid_dataset, valid_labels = reformat(valid_dataset, valid_labels)
 test_dataset, test_labels = reformat(test_dataset, test_labels)
@@ -54,7 +52,7 @@ print('Test set', test_dataset.shape, test_labels.shape)
 print("shape of the dataset is now : ", train_dataset.shape)
 
 
-# computation defined gets stored as graph nodes
+# # computation defined gets stored as graph nodes
 train_subset = 10000
 graph = tf.Graph()
 
@@ -68,23 +66,23 @@ with graph.as_default():
     weights = tf.Variable(tf.truncated_normal([image_size * image_size, num_labels]))
     biases = tf.Variable(tf.zeros([num_labels]))
 
-# Multiplies matrix `a` by matrix `b`, producing `a` * `b`.
-# The inputs must be two-dimensional matrices, with matching inner dimensions,
-# possibly after transposition.
-    logits = (tf.matmul(tf_train_dataset, weights) + biases)
+# # Multiplies matrix `a` by matrix `b`, producing `a` * `b`.
+# # The inputs must be two-dimensional matrices, with matching inner dimensions,
+# # possibly after transposition.
+#     logits = (tf.matmul(tf_train_dataset, weights) + biases)
 
-#    Computes softmax cross entropy between `logits` and `labels`.
-    loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits, tf_train_labels))
-    optimizer = tf.train.GradientDescentOptimizer(0.5).minimize(loss)
+# #    Computes softmax cross entropy between `logits` and `labels`.
+#     loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits, tf_train_labels))
+#     optimizer = tf.train.GradientDescentOptimizer(0.5).minimize(loss)
 
-    train_prediction = tf.nn.softmax(logits)
-    valid_prediction = tf.nn.softmax(tf.matmul(tf_valid_dataset, weights) + biases)
-    test_prediction = tf.nn.softmax(tf.matmul(tf_test_dataset, weights) + biases)
+#     train_prediction = tf.nn.softmax(logits)
+#     valid_prediction = tf.nn.softmax(tf.matmul(tf_valid_dataset, weights) + biases)
+#     test_prediction = tf.nn.softmax(tf.matmul(tf_test_dataset, weights) + biases)
 
-num_steps = 801
+# num_steps = 801
 
-def accuracy(predictions, labels):
-    return (100.0 * np.sum(np.argmax(predictions, 1) == np.argmax(labels, 1))/ predictions.shape[0])
+# def accuracy(predictions, labels):
+#     return (100.0 * np.sum(np.argmax(predictions, 1) == np.argmax(labels, 1))/ predictions.shape[0])
         
 
 # Running the tensorflow graph
