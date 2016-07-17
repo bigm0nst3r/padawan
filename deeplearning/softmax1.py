@@ -20,7 +20,6 @@ def softmax(x):
     what is the score value that the vector is of class 0, or class 1, or class2
     
     
-    
     Arguments:
     - `x`:
     """
