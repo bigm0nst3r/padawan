@@ -11,11 +11,14 @@ object rationals {
 
     println(i.toString())
 
-    println(i.neg)
+    println(-i)
 
-    println(i.sub(j))
+    // val k = new Rational(1,0)
 
+    println(i + j)
 
+    
+    
 
   }
 
