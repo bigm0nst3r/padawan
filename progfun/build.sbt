@@ -3,6 +3,10 @@ version := "1.0"
 
 
 
-resolvers += Resolver.sonatypeRepo("snapshots")
+scalaVersion := "2.11.8"
 
-addSbtPlugin("org.ensime" % "ensime-sbt" % "0.1.5-SNAPSHOT")
+libraryDependencies += "org.apache.spark" % "spark-core_2.11" % "2.0.0"
+
+libraryDependencies += "org.apache.spark" % "spark-sql_2.11" % "2.0.0"
+
+libraryDependencies += "org.apache.spark" % "spark-mllib_2.11" % "2.0.0"

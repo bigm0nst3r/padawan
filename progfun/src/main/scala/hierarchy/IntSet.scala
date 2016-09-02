@@ -1,12 +1,10 @@
 
 
-package hierarchy
+/**
+ * Created by ENSIME
+ * @author Sreejith Sreekumar <sreejith.sreekumar@247-inc.com>
+ *
+ */
 
-abstract class IntSet {
 
 
-  def incl(x : Int): IntSet
-
-  def contains(x : Int): Boolean 
-    
-}

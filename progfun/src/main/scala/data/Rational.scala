@@ -1,7 +1,5 @@
 package data
 
-
-
 class Rational(x: Int, y : Int) {
 
   require(y != 0, "denominator should be non zero")

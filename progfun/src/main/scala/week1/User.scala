@@ -3,6 +3,13 @@ package week1
 
 
 
+class Foobar {
+
+}
+
+
+
+
 
 class User(name : String){
 

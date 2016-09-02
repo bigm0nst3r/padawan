@@ -3,9 +3,11 @@ from six.moves import range
 
 import tensorflow as tf
 
+
 import numpy as np
 
 pickle_file = 'notMNIST.pickle'
+
 
 with open(pickle_file, "rb") as f:
   save = pickle.load(f)
@@ -48,10 +50,8 @@ graph = tf.Graph()
 
 # Taking ncols and nrows in the range (nrow_start : nrow_end) and (ncol, start)
 # ndarry[nrow_start : nrow_end, ncol, start]
-
-
-
 with graph.as_default():
+  
   tf_train_dataset = tf.constant(train_dataset[:train_subset, :])
   tf_train_labels = tf.constant(train_labels[:train_subset])
 
@@ -98,15 +98,3 @@ with tf.Session(graph=graph) as session:
       print('Training accuracy: %.1f%%' % accuracy(predictions, train_labels[:train_subset, :]))
 
       print('Validation accuracy: %.1f%%' % accuracy(valid_prediction.eval(), valid_labels))     
-
-    
-    
-
-  
-
-
-
-
-
-
-      
